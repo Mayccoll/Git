@@ -74,6 +74,7 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 	ssh-keygen
 ```
 
+- Crear y editar archivo config
 - Ingresar a gitlab
 - Inscribir llave ssh en gitlab
 
