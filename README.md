@@ -177,16 +177,19 @@ git commit -m “COMENTARIO DETALLADO”
 ## Comandos Basicos
 
 - Crea un repositorio
+
 ```bash
 	git init
 ```
 
 - Crea un copia en gitlab (clone)
+
 ```bash
     git clone git@github.com:sbadia/vagrant-gitlab.git
 ```
 
 - Agregar archivos al stage area (archivos listo para hacer commit)
+
 ```bash
 	git add <filename>
     # o
@@ -194,69 +197,343 @@ git commit -m “COMENTARIO DETALLADO”
 ```
 
 - Crear un commit
+
 ```bash
 	git commit -m "Commit message"
 ```
 
 - Añadir remoto
+
 ```bash
 	git remote add origin <server>
 ```
 
 - Enviar cambios a un repositorio remoto
+
 ```bash
 	git push origin master
 ```
 
 - Crear una rama
+
 ```bash
 	git branch <branch_name>
 ```
 
 - Cambiar a una rama
+
 ```bash
 	git checkout <branch_name>
 ```
 
 - Volver a la rama principal
+
 ```bash
 	git checkout master
 ```
 
 - Crear una rama y cambiarse a ella
+
 ```bash
 	git checkout -b feature_x
 ```
-.
-
-.
 
 - Borrar una rama
+
 ```bash
 	git branch -d <branch_name>
 ```
 
 - Subir una rama al repositorio
+
 ```bash
 	git push origin <branch_name>
 ```
 
 - Recibir repositorios remotos
+
 ```bash
 	git fetch <remote_name>
 ```
 
 - Fusionar otra rama con la rama activa
+
 ```bash
 	git merge <branch>
 ```
 
 - Actualizar repositorio local con los ultimos commits en el remoto
+
 ```bash
 	git pull
 ```
 
 - Revisar cambios entre ramas
+
 ```bash
 	git diff <source_branch> <target_branch>
+```
+
+## Comandos Extra
+
+- Push a todas las ramas
+
+```bash
+	git push --all origin
+```
+
+- Crea un copia (clone)
+
+```bash
+	# Hacer una copia de un repositorio local
+	git clone /path/to/repository
+
+    # Hacer una copia en un servidor remoto
+    git clone username@host:/path/to/repository
+```
+
+- Ver remotos.
+
+```bash
+	$ git remote
+```
+
+- Ver remoto con url asociada.
+
+```bash
+	$ git remote -v
+```
+
+- Añadir remoto
+
+```bash
+	$ git remote add origin git@192.168.77.24:adminturri/tti.git
+```
+
+- Remover remoto
+
+```bash
+	$ git remote rm origin
+```
+
+- Recibiendo de remotos
+
+```bash
+	$ git fetch <emote-name>
+```
+
+- Borrar rama en repositorio remoto
+
+```bash
+	git push origin :<branch_name>
+```
+
+- Crear  BRANCH desde unstaged/uncommited  en master
+
+```bash
+	$ git checkout -b new_branch_name
+```
+
+- Remove local branch
+
+```bash
+	$ git branch -d the_local_branch
+```
+
+- Remove remote branch
+
+```bash
+	$ git push origin :the_remote_branch
+```
+
+- Abortar Merge
+
+```bash
+	$ git merge --abort
+```
+
+- Reverter cualquier cambio
+
+```bash
+	$ git checkout -f
+```
+
+- Crear una etiqueta
+
+```bash
+	git tag 1.0.0 1b2e1d63ff
+```
+
+- Ver commits id
+
+```bash
+	git log
+```
+
+- Descartar cambios en un archivo
+
+```bash
+	git checkout -- <filename>
+```
+
+- Deshacer todos los cambios y volver a la ultima version del repositorio remoto
+
+```bash
+	git fetch origin
+    git reset --hard origin/master
+```
+
+- Ver archivos de un commit
+
+```bash
+	$ git diff-tree --no-commit-id --name-only -r bd61ad98
+```
+
+- Git interfaz grafica
+
+```bash
+	$ gitk
+```
+
+
+### Diff Tools
+
+- View single file 
+
+```bash
+	$ git difftool test:README.md remotes/origin/master:README.md
+```
+
+- View local master and remote
+
+```bash
+	$ git difftool master remotes/upstream/next
+```
+
+
+## SubModulos
+
+- Adding a submodule
+
+```bash
+	$ git submodule add git://github.com/jquery/jquery.git
+	
+	$ git submodule add git://github.com/tpyo/amazon-s3-php-class.git s3-class
+	
+	$ git add .
+	
+	$ git commit -m "Added two new submodules."
+```
+
+- Cloning a Repo with Submodules
+
+```bash 
+	$ git clone git@github.com:mexitek/fake-repo-whatevs.git
+	
+	$ cd fake-repo-whatevs/
+	
+	$ git submodule init
+	
+	$ git submodule update
+
+```
+
+-Updating Submodules For Your Parent Repo
+
+```bash 
+	$ cd PATH_TO_SUBMODULE/
+	
+	$ git pull origin master # <-- don't forget master!!
+	
+	$ cd PATH_TO_PARENT_REPO/
+	
+	$ git commit -am "Upgrading our Submodules"
+	
+	$ git push origin
+
+```
+
+- Pulling Submodule Updates From Parent Repo
+
+```bash 
+	$ git pull origin
+	
+	$ git submodule update
+```
+
+
+## Syncing a fork
+
+Before you can sync, you need to add a remote that points to the upstream repository. You may have done this when you originally forked.
+
+**Tip: Syncing your fork only updates your local copy of the repository; it does not update your repository on GitLab.**      **
+
+There are two steps required to sync your repository with the upstream: first you must fetch from the remote, then you must merge the desired branch into your local branch.
+```bash
+    $ git remote -v
+    # List the current remotes
+    # origin  https://github.com/user/repo.git (fetch)
+    # origin  https://github.com/user/repo.git (push)
+    
+    $ git remote add upstream https://github.com/otheruser/repo.git
+    # Set a new remote
+
+    $ git remote -v
+    # Verify new remote
+    # origin    https://github.com/user/repo.git (fetch)
+    # origin    https://github.com/user/repo.git (push)
+    # upstream  https://github.com/otheruser/repo.git (fetch)
+    # upstream  https://github.com/otheruser/repo.git (push)
+```
+#### Fetching
+
+Fetching from the remote repository will bring in its branches and their respective commits. These are stored in your local repository under special branches.
+```bash
+    $ git fetch upstream
+    # Grab the upstream remote's branches
+    # remote: Counting objects: 75, done.
+    # remote: Compressing objects: 100% (53/53), done.
+    # remote: Total 62 (delta 27), reused 44 (delta 9)
+    # Unpacking objects: 100% (62/62), done.
+    # From https://github.com/otheruser/repo
+    #  * [new branch]      master     -> upstream/master
+```
+
+We now have the upstream's master branch stored in a local branch, ```upstream/master```
+```bash
+    git branch -va
+    # List all local and remote-tracking branches
+    # * master                  a422352 My local commit
+    #   remotes/origin/HEAD     -> origin/master
+    #   remotes/origin/master   a422352 My local commit
+    #   remotes/upstream/master 5fdff0f Some upstream commit
+```
+
+#### Merging
+
+Now that we have fetched the upstream repository, we want to merge its changes into our local branch. This will bring that branch into sync with the upstream, without losing our local changes.
+
+```bash
+    git checkout master
+    # Check out our local master branch
+    # Switched to branch 'master'
+    
+    git merge upstream/master
+    # Merge upstream's master into our own
+    # Updating a422352..5fdff0f
+    # Fast-forward
+    #  README                    |    9 -------
+    #  README.md                 |    7 ++++++
+    #  2 files changed, 7 insertions(+), 9 deletions(-)
+    #  delete mode 100644 README
+    #  create mode 100644 README.md
+```
+
+If your local branch didn't have any unique commits, git will instead perform a "fast-forward":
+```bash
+    git merge upstream/master
+    # Updating 34e91da..16c56ad
+    # Fast-forward
+    #  README.md                 |    5 +++--
+    #  1 file changed, 3 insertions(+), 2 deletions(-)
 ```
