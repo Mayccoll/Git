@@ -63,15 +63,15 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 - Configurar git 
 
 ```bash
-    git config --global user.name "USERNAME"
-    git config --global user.email "EMAIL@EMAIL.com"
-    git config --global color.ui true
+    $ git config --global user.name "USERNAME"
+    $ git config --global user.email "EMAIL@EMAIL.com"
+    $ git config --global color.ui true
 ```
 
 - Crear llave ssh
 
 ```bash
-    ssh-keygen
+    $ ssh-keygen
 ```
 
 - Crear y Editar archivo config
@@ -86,29 +86,30 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 - Clonar el repositorio a tu maquina.**(UNA VEZ)**
 
 ```bash
-	git clone git@REPO.git
+	$ git clone git@REPO.git
 ```
 
 - Agregar upstream remoto. **(UNA VEZ)**
 
 ```bash
-	git remote add upstream git@REPO.git
+	$ git remote add upstream git@REPO.git
     
     # Esto ahora te permitirá que hacer un pull de cambios del origen localmente y combinarlos, así:
-    git fetch upstream
-	git merge upstream/master
+    $ git fetch upstream
+	
+	$ git merge upstream/master
 ```
 
 - Crear una BRANCH con titulo detallado sobre lo que vas a trabajar 
 
 ```bash
-	git branch mejora_345
+	$ git branch mejora_345
 ```
 
 - Cambiar rama.
 
 ```bash
-	git checkout mejora_345
+	$ git checkout mejora_345
 ```
 
 - Trabajar
@@ -116,21 +117,23 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 - Agregar los cambios
 
 ```bash
-    git add <FILE>
+    $ git add <FILE>
+    
     # o
-    git add .
+    
+    $ git add .
 ```
 
 - Haz COMMIT
 
 ```bash
-    git commit --am "COMENTARIO DETALLADO"
+    $ git commit --am "COMENTARIO DETALLADO"
 ```
 
 - Haz un PUSH
 
 ```bash
-	git push origin mejora_345
+	$ git push origin mejora_345
 ```
 
 - Crea un PULL REQUEST
@@ -144,13 +147,13 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 - Clonar el repositorio.
 
 ```bash
-	git clone REPO
+	$ git clone REPO
 ```
 
 - Crear un branch
 
 ```bash
-	git branch NUEVA
+	$ git branch NUEVA
 ```
 
 - Trabajar
@@ -158,18 +161,18 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 - Agregar los cambios
 
 ```bash
-	git add .
+	$ git add .
 ```
 - Hacer commit
 
 ```bash
-git commit -m “COMENTARIO DETALLADO”
+	$ git commit -m “COMENTARIO DETALLADO”
 ```
 
 - Hacer un push de la branch
 
 ```bash
-	git push -u origin BRANCH
+	$ git push -u origin BRANCH
 ```
 
 
@@ -179,99 +182,101 @@ git commit -m “COMENTARIO DETALLADO”
 - Crea un repositorio
 
 ```bash
-	git init
+	$ git init
 ```
 
 - Crea un copia en gitlab (clone)
 
 ```bash
-    git clone git@github.com:sbadia/vagrant-gitlab.git
+    $ git clone git@github.com:sbadia/vagrant-gitlab.git
 ```
 
 - Agregar archivos al stage area (archivos listo para hacer commit)
 
 ```bash
-	git add <filename>
+	$ git add <filename>
+	
     # o
-    git add .
+    
+    $ git add .
 ```
 
 - Crear un commit
 
 ```bash
-	git commit -m "Commit message"
+	$ git commit -m "Commit message"
 ```
 
 - Añadir remoto
 
 ```bash
-	git remote add origin <server>
+	$ git remote add origin <server>
 ```
 
 - Enviar cambios a un repositorio remoto
 
 ```bash
-	git push origin master
+	$ git push origin master
 ```
 
 - Crear una rama
 
 ```bash
-	git branch <branch_name>
+	$ git branch <branch_name>
 ```
 
 - Cambiar a una rama
 
 ```bash
-	git checkout <branch_name>
+	$ git checkout <branch_name>
 ```
 
 - Volver a la rama principal
 
 ```bash
-	git checkout master
+	$ git checkout master
 ```
 
 - Crear una rama y cambiarse a ella
 
 ```bash
-	git checkout -b feature_x
+	$ git checkout -b feature_x
 ```
 
 - Borrar una rama
 
 ```bash
-	git branch -d <branch_name>
+	$ git branch -d <branch_name>
 ```
 
 - Subir una rama al repositorio
 
 ```bash
-	git push origin <branch_name>
+	$ git push origin <branch_name>
 ```
 
 - Recibir repositorios remotos
 
 ```bash
-	git fetch <remote_name>
+	$ git fetch <remote_name>
 ```
 
 - Fusionar otra rama con la rama activa
 
 ```bash
-	git merge <branch>
+	$ git merge <branch>
 ```
 
 - Actualizar repositorio local con los ultimos commits en el remoto
 
 ```bash
-	git pull
+	$ git pull
 ```
 
 - Revisar cambios entre ramas
 
 ```bash
-	git diff <source_branch> <target_branch>
+	$ git diff <source_branch> <target_branch>
 ```
 
 ## Comandos Extra
@@ -279,17 +284,17 @@ git commit -m “COMENTARIO DETALLADO”
 - Push a todas las ramas
 
 ```bash
-	git push --all origin
+	$ git push --all origin
 ```
 
 - Crea un copia (clone)
 
 ```bash
 	# Hacer una copia de un repositorio local
-	git clone /path/to/repository
+	$ git clone /path/to/repository
 
     # Hacer una copia en un servidor remoto
-    git clone username@host:/path/to/repository
+    $ git clone username@host:/path/to/repository
 ```
 
 - Ver remotos.
@@ -325,7 +330,7 @@ git commit -m “COMENTARIO DETALLADO”
 - Borrar rama en repositorio remoto
 
 ```bash
-	git push origin :<branch_name>
+	$ git push origin :<branch_name>
 ```
 
 - Crear  BRANCH desde unstaged/uncommited  en master
@@ -361,26 +366,26 @@ git commit -m “COMENTARIO DETALLADO”
 - Crear una etiqueta
 
 ```bash
-	git tag 1.0.0 1b2e1d63ff
+	$ git tag 1.0.0 1b2e1d63ff
 ```
 
 - Ver commits id
 
 ```bash
-	git log
+	$ git log
 ```
 
 - Descartar cambios en un archivo
 
 ```bash
-	git checkout -- <filename>
+	$ git checkout -- <filename>
 ```
 
 - Deshacer todos los cambios y volver a la ultima version del repositorio remoto
 
 ```bash
-	git fetch origin
-    git reset --hard origin/master
+	$ git fetch origin
+    $ git reset --hard origin/master
 ```
 
 - Ver archivos de un commit
