@@ -71,7 +71,7 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 - Crear llave ssh
 
 ```bash
-	ssh-keygen
+    ssh-keygen
 ```
 
 - Crear y Editar archivo config
@@ -79,29 +79,18 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 - Inscribir llave ssh en gitlab
 
 
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-
 ## Flujo de trabajo FORK
 
-1. Hacer un FORK del repositorio a tu cuenta.
+- Hacer un FORK del repositorio a tu cuenta. **(UNA VEZ)**
 
-2. Clonar el repositorio a tu maquina.
+- Clonar el repositorio a tu maquina.**(UNA VEZ)**
+
 ```bash
 	git clone git@REPO.git
 ```
 
-3. Agregar upstream remoto.
+- Agregar upstream remoto. **(UNA VEZ)**
+
 ```bash
 	git remote add upstream git@REPO.git
     
@@ -110,39 +99,81 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 	git merge upstream/master
 ```
 
-4. Crear una BRANCH con titulo detallado sobre lo que vas a trabajar y cambiate a ella.
+- Crear una BRANCH con titulo detallado sobre lo que vas a trabajar 
+
 ```bash
-	git checkout -b mejora_345
+	git branch mejora_345
 ```
 
-5. Trabajar
+- Cambiar rama.
 
-6. Agregar los cambios
 ```bash
-    git add FILE
+	git checkout mejora_345
+```
+
+- Trabajar
+
+- Agregar los cambios
+
+```bash
+    git add <FILE>
     # o
     git add .
 ```
 
-7. Haz COMMIT
+- Haz COMMIT
+
 ```bash
     git commit --am "COMENTARIO DETALLADO"
 ```
 
-8. Haz un PUSH
+- Haz un PUSH
+
 ```bash
 	git push origin mejora_345
 ```
 
-9. Crea un PULL REQUEST
+- Crea un PULL REQUEST
 
-.
 
-.
 
-.
 
-.
+
+## Flujo de trabajo branch
+
+- Clonar el repositorio.
+
+```bash
+	git clone REPO
+```
+
+- Crear un branch
+
+```bash
+	git branch NUEVA
+```
+
+- Trabajar
+
+- Agregar los cambios
+
+```bash
+	git add .
+```
+- Hacer commit
+
+```bash
+git commit -m “COMENTARIO DETALLADO”
+```
+
+- Hacer un push de la branch
+
+```bash
+	git push -u origin BRANCH
+```
+
+
+
 ## Comandos Basicos
 
 - Crea un repositorio
