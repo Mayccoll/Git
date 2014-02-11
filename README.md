@@ -65,7 +65,11 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 ```bash
     $ git config --global user.name "USERNAME"
     $ git config --global user.email "EMAIL@EMAIL.com"
+    
+    # (Opcionales)
     $ git config --global color.ui true
+    $ git config --global log.decorate true
+	$ git config --global log.abbrevCommit true
 ```
 
 - Crear llave ssh
