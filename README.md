@@ -404,6 +404,12 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 	$ git log origin/master
 ```
 
+- Removes staged and working directory changes
+
+```bash
+	$ git reset --hard
+```
+
 
 - Git interfaz grafica
 
