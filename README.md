@@ -398,6 +398,13 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 	$ git diff-tree --no-commit-id --name-only -r bd61ad98
 ```
 
+- View remote commits
+
+```bash
+	$ git log origin/master
+```
+
+
 - Git interfaz grafica
 
 ```bash
