@@ -410,6 +410,11 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 	$ git reset --hard
 ```
 
+- Remove untracked files
+
+```bash
+	$ git clean -f -d
+```
 
 - Git interfaz grafica
 
