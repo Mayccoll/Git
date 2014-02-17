@@ -3,11 +3,12 @@
 
 # Pull and log
 */3 * * * *   /root/crons/prototiposena.sh  >> ~/crons/logs/prototiposena.log 2>&1
-*/3 * * * *   /root/crons/time_stamp.sh  >> ~/crons/logs/git_log_prototiposena.log1 2>&1
+*/3 * * * *   /root/crons/time_stamp.sh  >> ~/crons/logs/prototiposena.log 2>&1
 
 
 */3 * * * *   /root/crons/prototiposena_prueba.sh  >> ~/crons/logs/prototiposena_prueba.log 2>&1
-*/3 * * * *   /root/crons/time_stamp.sh  >> ~/crons/logs/git_log_prototiposena.log2 2>&1
+*/3 * * * *   /root/crons/time_stamp.sh  >> ~/crons/logs/prototiposena_prueba.log 2>&1
+
 
 
 
