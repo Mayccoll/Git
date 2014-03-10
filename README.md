@@ -564,3 +564,13 @@ If your local branch didn't have any unique commits, git will instead perform a 
     #  README.md                 |    5 +++--
     #  1 file changed, 3 insertions(+), 2 deletions(-)
 ```
+
+
+## Funcionales
+
+- Git Extras
+
+```bash
+    https://github.com/visionmedia/git-extras
+```
+
