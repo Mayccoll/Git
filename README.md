@@ -1,12 +1,15 @@
-Git y Gitlab Fujo de trabajo
-=====
-#### Implementacion de entornos de desarrollo con control de versiones.
+# Flujo de trabajo con Git y Gitlab
 
-- - -
-
-Lo primero que hay que tener en cuenta es que el flujo de trabajo con git  involucra a todos los integrantes del equipo, por lo que se requiere que esten en buena disposición y dispuestos a cambiar sus paradigmas, así mismo que entiendan en que consiste trabajar con git.
+### Implementación de entornos de desarrollo con control de versiones.
 
 
+## Introduccion
+
+Este documento proporciona un punto de inicio para empezar a trabajar con git y gitlab, abarcando desde los puntos mas básicos hasta algunos un poco mas complejos asegurando cubrir todos los elementos necesarios para un completo flujo de trabajo.
+
+Si bien en git existe una gran variedad de flujos de trabajo en este documento hablaremos del flujo de trabajo bifurcado el cual es diferente a otros flujos de trabajo ya que no consta de un repositorio único del lado del servidor, sino que cada desarrollador tiene dos repositorios Git, uno local y otro en el servidor desde donde envian sus commits a un tercer repositorio gestionado por el director del proyecto.
+
+Algo que hay que tener en cuenta es que el flujo de trabajo con git involucra a todos los integrantes del equipo, por lo que se requiere que estén en buena disposición y dispuestos a cambiar sus paradigmas, así mismo que entiendan en que consiste trabajar con git.
 
 ## Acerca del control de versiones
 
@@ -14,45 +17,42 @@ Lo primero que hay que tener en cuenta es que el flujo de trabajo con git  invol
 
 El control de versiones es un sistema que registra los cambios realizados sobre un archivo o conjunto de archivos a lo largo del tiempo, de modo que puedas recuperar versiones específicas más adelante.
 
-Si eres diseñador gráfico o web, y quieres mantener cada versión de una imagen o diseño (algo que sin duda quieres), un sistema de control de versiones (Version Control System o VCS en inglés) es una elección muy sabia. Te permite revertir archivos a un estado anterior, revertir el proyecto entero a un estado anterior, comparar cambios a lo largo del tiempo, ver quién modificó por última vez algo que puede estar causando un problema, quién introdujo un error y cuándo, y mucho más. Usar un VCS también significa generalmente que si fastidias o pierdes archivos, puedes recuperarlos fácilmente. Además, obtienes todos estos beneficios a un coste muy bajo.
-(fuente: http://git-scm.com/book/es/Empezando-Acerca-del-control-de-versiones)
-
+Si eres diseñador gráfico o web, y quieres mantener cada versión de una imagen o diseño (algo que sin duda quieres), un sistema de control de versiones (Version Control System o VCS en inglés) es una elección muy sabia. Te permite revertir archivos a un estado anterior, revertir el proyecto entero a un estado anterior, comparar cambios a lo largo del tiempo, ver quién modificó por última vez algo que puede estar causando un problema, quién introdujo un error y cuándo, y mucho más. Usar un VCS también significa generalmente que si fastidias o pierdes archivos, puedes recuperarlos fácilmente. Además, obtienes todos estos beneficios a un coste muy bajo. (fuente: http://git-scm.com/book/es/Empezando-Acerca-del-control-de-versiones)
 
 ## GIT
 
 Git es un software de control de versiones diseñado por Linus Torvalds, pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando estas tienen un gran número de archivos de código fuente.
 
-Git se ha convertido desde entonces en un sistema de control de versiones con funcionalidad plena. 3 Hay algunos proyectos de mucha relevancia que ya usan Git, en particular, el grupo de programación del núcleo Linux.
-(fuente: wikipedia)
-
-
+Git se ha convertido desde entonces en un sistema de control de versiones con funcionalidad plena. 3 Hay algunos proyectos de mucha relevancia que ya usan Git, en particular, el grupo de programación del núcleo Linux. (fuente: wikipedia)
 
 ## GitLab
 
-Es un aplicación para administrar proyectos con el control de versiones Git, basada en Ruby on Rails es software libre. Tiene un gran parecido tanto visual como funcionalmente a lo que es GitHub.
-En el podemos observar algunas de sus fucniones como manejar distintos proyectos, manejar usuarios, ver commits, ver archivos, ver ramas, ver gráficos, asignar tareas, ver meger, editar archivos, Wiki, entre otras.
+Es un aplicación para administrar proyectos con el control de versiones Git, basada en Ruby on Rails es software libre. Tiene un gran parecido tanto visual como funcionalmente a lo que es GitHub. En el podemos observar algunas de sus fucniones como manejar distintos proyectos, manejar usuarios, ver commits, ver archivos, ver ramas, ver gráficos, asignar tareas, ver meger, editar archivos, Wiki, entre otras.
 
 
-
-## Requisitos programador.
+## Requisitos programador
 
 - Disposicion al cambio
+
 - Manejo de GIT
+
 - Manejo de github o gitlab.
+
 - Conocimiento de Markdown.
-
-
 
 ## Requerimientos de software
 
 - cliente ssh
+
 - git
+
 - Gitlab
-- (opcionales)
- - Meld
- - Git GUI
 
+- Opcionales
 
+  - Meld
+
+  - Git GUI
 
 ## Pre-Configuracion
 
@@ -60,104 +60,117 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 
 - Instalar cliente ssh
 
-- Configurar git 
+- Configurar git
 
 ```bash
     $ git config --global user.name "USERNAME"
     $ git config --global user.email "EMAIL@EMAIL.com"
-    
+
     # (Opcionales)
     $ git config --global color.ui true
     $ git config --global log.decorate true
-	$ git config --global log.abbrevCommit true
+    $ git config --global log.abbrevCommit true
 ```
 
 - Crear llave ssh
 
 ```bash
-    $ ssh-keygen
+    $ ssh-keygen -t rsa -b 4096
 ```
 
 - Crear y Editar archivo config
+
 - Ingresar a gitlab
+
 - Inscribir llave ssh en gitlab
 
 
-## Flujo de trabajo FORK
+
+## Flujo de trabajo Bifurcado (Fork-Branch)
 
 - Hacer un FORK del repositorio a tu cuenta. **(UNA VEZ)**
 
-- Clonar el repositorio a tu maquina.**(UNA VEZ)**
+- Clonar el repositorio a tu maquina. **(UNA VEZ)**
 
 ```bash
-	$ git clone git@REPO.git
+    $ git clone git@REPO.git
 ```
 
 - Agregar upstream remoto. **(UNA VEZ)**
 
+Este repositorio es del cual se hace fork
+
 ```bash
-	$ git remote add upstream git@REPO.git
-    
-    # Esto ahora te permitirá que hacer un pull de cambios del origen localmente y combinarlos, así:
-    $ git fetch upstream
-	
-	$ git merge upstream/master
+    $ git remote add upstream git@REPO.git
 ```
 
-- Crear una BRANCH con titulo detallado sobre lo que vas a trabajar 
+- Crear una BRANCH con titulo detallado sobre lo que vas a trabajar
 
 ```bash
-	$ git branch mejora_345
+    $ git branch mejora_345
 ```
 
 - Cambiar rama.
 
 ```bash
-	$ git checkout mejora_345
+    $ git checkout mejora_345
 ```
 
 - Trabajar
 
-- Agregar los cambios
+- Agragar cambios y hacer commit.
 
 ```bash
-    $ git add <FILE>
-    
-    # o
-    
     $ git add .
-```
-
-- Haz COMMIT
-
-```bash
     $ git commit --am "COMENTARIO DETALLADO"
 ```
 
-- Haz un PUSH
+- Actualizar repositorio con upstream y verificar conflictos.
 
 ```bash
-	$ git push origin mejora_345
+    $ git fetch upstream
+
+    $ git merge upstream/master
 ```
 
-- Crea un PULL REQUEST
+- Hacer un push
+
+```bash
+    $ git push origin mejora_345
+```
+
+## Como hacer un Commit
+
+
+
+* Hablar sobre las funcionalidades del nuevo código, no sobre ti mismo. Muchas veces caemos en el error de hablar sobre lo que hicimos, obviando lo que hace actualmente el código modificado. Hay que fijar el objetivo de ese commit centrándonos en la historia de usuario que estamos realizando.
+
+* Si queremos ampliar (dentro de un límite) podemos hablar de la motivación del cambio y contrastar la implementación con el comportamiento anterior.
+
+* No hablar en pasado. Muchos ortodoxos opinan que lo mejor es usar la forma imperativa del verbo que usemos para indicar que hace este commit.
+
+* Evitar referencias temporales en el mensaje de commit, la revisión ya incluye la fecha de modificación.
+
+* Aportar meta información en los commmit. Si usamos herramientas integradas como Stash y Jira, podemos adjuntar los identificadores de las tareas que hayamos realizado en el commit para enlazar el código modificado con la propia historia. De esta forma podemos revisar el estado y ampliar la información de cada tarea de JIRA con el código fuente.
+
+* Utilizar una primera frase de no más de 50 caracteres que resuma el contenido del commit. Muy útil si pensamos cuando nos movemos con herramientas como Sourcetree (en la vista general) o la terminal, donde sólo vemos la primera línea del commit.
 
 
 
 
 
-## Flujo de trabajo branch
+## Flujo de trabajo Branch
 
 - Clonar el repositorio.
 
 ```bash
-	$ git clone REPO
+    $ git clone REPO
 ```
 
 - Crear un branch
 
 ```bash
-	$ git branch NUEVA
+    $ git branch NUEVA
 ```
 
 - Trabajar
@@ -165,28 +178,26 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 - Agregar los cambios
 
 ```bash
-	$ git add .
+    $ git add .
 ```
 - Hacer commit
 
 ```bash
-	$ git commit -m “COMENTARIO DETALLADO”
+    $ git commit -m “COMENTARIO DETALLADO”
 ```
 
 - Hacer un push de la branch
 
 ```bash
-	$ git push -u origin BRANCH
+    $ git push -u origin BRANCH
 ```
-
-
 
 ## Comandos Basicos
 
 - Crea un repositorio
 
 ```bash
-	$ git init
+    $ git init
 ```
 
 - Crea un copia en gitlab (clone)
@@ -198,104 +209,104 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 - Agregar archivos al stage area (archivos listo para hacer commit)
 
 ```bash
-	$ git add <filename>
-	
+    $ git add <filename>
+
     # o
-    
+
     $ git add .
 ```
 
 - Crear un commit
 
 ```bash
-	$ git commit -m "Commit message"
+    $ git commit -m "Commit message"
 ```
 
 - Añadir remoto
 
 ```bash
-	$ git remote add origin <server>
+    $ git remote add origin <server>
 ```
 
 - Enviar cambios a un repositorio remoto
 
 ```bash
-	$ git push origin master
+    $ git push origin master
 ```
 
 - Crear una rama
 
 ```bash
-	$ git branch <branch_name>
+    $ git branch <branch_name>
 ```
 
 - Cambiar a una rama
 
 ```bash
-	$ git checkout <branch_name>
+    $ git checkout <branch_name>
 ```
 
 - Volver a la rama principal
 
 ```bash
-	$ git checkout master
+    $ git checkout master
 ```
 
 - Crear una rama y cambiarse a ella
 
 ```bash
-	$ git checkout -b feature_x
+    $ git checkout -b feature_x
 ```
 
 - Borrar una rama
 
 ```bash
-	$ git branch -d <branch_name>
+    $ git branch -d <branch_name>
 ```
 
 - Subir una rama al repositorio
 
 ```bash
-	$ git push origin <branch_name>
+    $ git push origin <branch_name>
 ```
 
 - Recibir repositorios remotos
 
 ```bash
-	$ git fetch <remote_name>
+    $ git fetch <remote_name>
 ```
 
 - Fusionar otra rama con la rama activa
 
 ```bash
-	$ git merge <branch>
+    $ git merge <branch>
 ```
 
 - Actualizar repositorio local con los ultimos commits en el remoto
 
 ```bash
-	$ git pull
+    $ git pull
 ```
 
 - Revisar cambios entre ramas
 
 ```bash
-	$ git diff <source_branch> <target_branch>
+    $ git diff <source_branch> <target_branch>
 ```
 
-## Comandos Extra
+## Comandos Avanzados
 
 - Push a todas las ramas
 
 ```bash
-	$ git push --all origin
+    $ git push --all origin
 ```
 
 - Crea un copia (clone)
 
 ```bash
-	# Hacer una copia de un repositorio local
-	$ git clone /path/to/repository
+    # Hacer una copia de un repositorio local
+    $ git clone /path/to/repository
 
     # Hacer una copia en un servidor remoto
     $ git clone username@host:/path/to/repository
@@ -304,190 +315,199 @@ En el podemos observar algunas de sus fucniones como manejar distintos proyectos
 - Ver remotos.
 
 ```bash
-	$ git remote
+    $ git remote
 ```
 
 - Ver remoto con url asociada.
 
 ```bash
-	$ git remote -v
+    $ git remote -v
 ```
 
 - Añadir remoto
 
 ```bash
-	$ git remote add origin git@192.168.77.24:adminturri/tti.git
+    $ git remote add origin git@192.168.77.24:adminturri/tti.git
 ```
 
 - Remover remoto
 
 ```bash
-	$ git remote rm origin
+    $ git remote rm origin
 ```
 
 - Recibiendo de remotos
 
 ```bash
-	$ git fetch <emote-name>
+    $ git fetch <emote-name>
 ```
 
 - Borrar rama en repositorio remoto
 
 ```bash
-	$ git push origin :<branch_name>
+    $ git push origin :<branch_name>
 ```
 
 - Crear  BRANCH desde unstaged/uncommited  en master
 
 ```bash
-	$ git checkout -b new_branch_name
+    $ git checkout -b new_branch_name
 ```
 
 - Remove local branch
 
 ```bash
-	$ git branch -d the_local_branch
+    $ git branch -d the_local_branch
 ```
 
 - Remove remote branch
 
 ```bash
-	$ git push origin :the_remote_branch
+    $ git push origin :the_remote_branch
 ```
 
 - Abortar Merge
 
 ```bash
-	$ git merge --abort
+    $ git merge --abort
 ```
 
 - Reverter cualquier cambio
 
 ```bash
-	$ git checkout -f
+    $ git checkout -f
 ```
 
 - Crear una etiqueta
 
 ```bash
-	$ git tag 1.0.0 1b2e1d63ff
+    $ git tag 1.0.0 1b2e1d63ff
 ```
 
 - Ver commits id
 
 ```bash
-	$ git log
+    $ git log
 ```
 
 - Descartar cambios en un archivo
 
 ```bash
-	$ git checkout -- <filename>
+    $ git checkout -- <filename>
 ```
 
 - Deshacer todos los cambios y volver a la ultima version del repositorio remoto
 
 ```bash
-	$ git fetch origin
+    $ git fetch origin
     $ git reset --hard origin/master
 ```
 
 - Ver archivos de un commit
 
 ```bash
-	$ git diff-tree --no-commit-id --name-only -r bd61ad98
+    $ git diff-tree --no-commit-id --name-only -r bd61ad98
 ```
 
 - View remote commits
 
 ```bash
-	$ git log origin/master
+    $ git log origin/master
 ```
 
 - Removes staged and working directory changes
 
 ```bash
-	$ git reset --hard
+    $ git reset --hard
 ```
 
 - Remove untracked files
 
 ```bash
-	$ git clean -f -d
+    $ git clean -f -d
 ```
 
 - Git interfaz grafica
 
 ```bash
-	$ gitk
+    $ gitk
 ```
 
+## Diff Tools
 
-### Diff Tools
-
-- View single file 
+- View single file
 
 ```bash
-	$ git difftool test:README.md remotes/origin/master:README.md
+    $ git difftool test:README.md remotes/origin/master:README.md
 ```
 
 - View local master and remote
 
 ```bash
-	$ git difftool master remotes/upstream/next
+    $ git difftool master remotes/upstream/next
 ```
 
+- Revisar cambios entre ramas
+
+```bash
+    $ git diff <source_branch> <target_branch>
+```
+
+- Ver archivos de un commit
+
+```bash
+    $ git diff-tree --no-commit-id --name-only -r bd61ad98
+```
 
 ## SubModulos
 
 - Adding a submodule
 
 ```bash
-	$ git submodule add git://github.com/jquery/jquery.git
-	
-	$ git submodule add git://github.com/tpyo/amazon-s3-php-class.git s3-class
-	
-	$ git add .
-	
-	$ git commit -m "Added two new submodules."
+    $ git submodule add git://github.com/jquery/jquery.git
+
+    $ git submodule add git://github.com/tpyo/amazon-s3-php-class.git s3-class
+
+    $ git add .
+
+    $ git commit -m "Added two new submodules."
 ```
 
 - Cloning a Repo with Submodules
 
-```bash 
-	$ git clone git@github.com:mexitek/fake-repo-whatevs.git
-	
-	$ cd fake-repo-whatevs/
-	
-	$ git submodule init
-	
-	$ git submodule update
+```bash
+    $ git clone git@github.com:mexitek/fake-repo-whatevs.git
+
+    $ cd fake-repo-whatevs/
+
+    $ git submodule init
+
+    $ git submodule update
 
 ```
 
--Updating Submodules For Your Parent Repo
+- Updating Submodules For Your Parent Repo
 
-```bash 
-	$ cd PATH_TO_SUBMODULE/
-	
-	$ git pull origin master # <-- don't forget master!!
-	
-	$ cd PATH_TO_PARENT_REPO/
-	
-	$ git commit -am "Upgrading our Submodules"
-	
-	$ git push origin
+```bash
+    $ cd PATH_TO_SUBMODULE/
+
+    $ git pull origin master # <-- don't forget master!!
+
+    $ cd PATH_TO_PARENT_REPO/
+
+    $ git commit -am "Upgrading our Submodules"
+
+    $ git push origin
 
 ```
 
 - Pulling Submodule Updates From Parent Repo
 
-```bash 
-	$ git pull origin
-	
-	$ git submodule update
-```
+```bash
+    $ git pull origin
 
+    $ git submodule update
+```
 
 ## Syncing a fork
 
@@ -501,7 +521,7 @@ There are two steps required to sync your repository with the upstream: first yo
     # List the current remotes
     # origin  https://github.com/user/repo.git (fetch)
     # origin  https://github.com/user/repo.git (push)
-    
+
     $ git remote add upstream https://github.com/otheruser/repo.git
     # Set a new remote
 
@@ -512,7 +532,7 @@ There are two steps required to sync your repository with the upstream: first yo
     # upstream  https://github.com/otheruser/repo.git (fetch)
     # upstream  https://github.com/otheruser/repo.git (push)
 ```
-#### Fetching
+### Fetching
 
 Fetching from the remote repository will bring in its branches and their respective commits. These are stored in your local repository under special branches.
 ```bash
@@ -536,7 +556,7 @@ We now have the upstream's master branch stored in a local branch, ```upstream/m
     #   remotes/upstream/master 5fdff0f Some upstream commit
 ```
 
-#### Merging
+### Merging
 
 Now that we have fetched the upstream repository, we want to merge its changes into our local branch. This will bring that branch into sync with the upstream, without losing our local changes.
 
@@ -544,7 +564,7 @@ Now that we have fetched the upstream repository, we want to merge its changes i
     git checkout master
     # Check out our local master branch
     # Switched to branch 'master'
-    
+
     git merge upstream/master
     # Merge upstream's master into our own
     # Updating a422352..5fdff0f
@@ -565,12 +585,17 @@ If your local branch didn't have any unique commits, git will instead perform a 
     #  1 file changed, 3 insertions(+), 2 deletions(-)
 ```
 
-
 ## Funcionales
 
 - Git Extras
 
 ```bash
     https://github.com/visionmedia/git-extras
+```
+
+- Git - La Guía Sencilla
+
+```bash
+    http://rogerdudler.github.io/git-guide/index.es.html
 ```
 
