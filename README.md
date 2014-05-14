@@ -70,6 +70,8 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
     $ git config --global color.ui true
     $ git config --global log.decorate true
     $ git config --global log.abbrevCommit true
+        # only pushes the current branch to the corresponding remote branch
+    $ git config --global push.default simple
 ```
 
 - Crear llave ssh
