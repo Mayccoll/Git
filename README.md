@@ -298,6 +298,12 @@ Este repositorio es del cual se hace fork
 
 ## Comandos Avanzados
 
+- **Git log**
+
+```bash
+    $ git log -10 --graph --date-order -C -M --pretty=format:"%C(yellow)%h%C(reset) - %C(bold green)%ad%C(reset) - %C(dim yellow)%an%C(reset) %C(bold red)>%C(reset) %C(white)%s%C(reset) %C(bold red)%d%C(reset) " --abbrev-commit --date=short
+```
+
 - Push a todas las ramas
 
 ```bash
