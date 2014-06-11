@@ -310,7 +310,7 @@ Este repositorio es del cual se hace fork
     $ git push --all origin
 ```
 
-- Crea un copia (clone)
+- Crea un copia en local (clone)
 
 ```bash
     # Hacer una copia de un repositorio local
@@ -319,6 +319,8 @@ Este repositorio es del cual se hace fork
     # Hacer una copia en un servidor remoto
     $ git clone username@host:/path/to/repository
 ```
+
+- **Remote**
 
 - Ver remotos.
 
