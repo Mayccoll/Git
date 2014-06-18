@@ -1,0 +1,111 @@
+# |
+# | .gitignore
+# | :::::::::::::::::::::::::::
+*.pdf
+*.txt
+*.TXT
+*.dat
+
+# |
+# | Images
+# | :::::::::::::::::::::::::::
+# *.gif
+# *.jpg
+# *.png
+
+# |
+# | Media
+# | :::::::::::::::::::::::::::
+*.flv
+*.FLV
+*.mp4
+*.mp3
+*.wmv
+*.mpeg
+
+# |
+# | System
+# | :::::::::::::::::::::::::::
+*.bat
+*.ini
+*.run
+*.sh
+*.dll
+*.sh
+*.bat
+
+# |
+# | Office
+# | :::::::::::::::::::::::::::
+*.doc
+*.xls
+*.docx
+*.xlsx
+# |
+# | Executable
+# | :::::::::::::::::::::::::::
+*.msi
+*.exe
+
+# |
+# | Databases
+# | ::::::::::::::::::::::::::
+*.dbf
+*.sql
+# |
+# | Compress
+# | :::::::::::::::::::::::::::
+*.zip
+*.rar
+*.tar
+*.tar.gz
+
+# |
+# | Temp
+# | :::::::::::::::::::::::::::
+**/temp/**/*
+*/temp/**/*
+./**/temp/**/*
+/**/temp/*
+/**/temp/**/*
+/./**/temp/**/*
+temp/*
+temp/**/*
+
+# |
+# | Others
+# | :::::::::::::::::::::::::::
+*.afm
+*.afp
+*.ascx
+*.asp
+*.aspx
+*.cfc
+*.cfm
+*.cgi
+*.class
+*.crt
+*.csv
+*.db
+*.eot
+*.fdf
+*.gz
+*.htc
+*.inc
+*.lasso
+*.LGPL
+*.map
+*.pl
+*.psd
+*.py
+*.sample
+*.ser
+*.skel
+*.svg
+*.ttf
+*.ufm
+*.woff
+*.xcf
+*.xml
+*.xsl
+*.z
