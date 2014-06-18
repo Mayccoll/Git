@@ -12,6 +12,7 @@
 # *.gif
 # *.jpg
 # *.png
+# *.ico
 
 # |
 # | Media
@@ -94,14 +95,18 @@ temp/**/*
 *.inc
 *.lasso
 *.LGPL
+*.LOG
 *.map
+*.mno
 *.pl
 *.psd
 *.py
+*.rtf
 *.sample
 *.ser
 *.skel
 *.svg
+*.tif
 *.ttf
 *.ufm
 *.woff
