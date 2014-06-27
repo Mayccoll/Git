@@ -124,6 +124,17 @@ temp/**/*
 *.xsl
 *.z
 
+# |
+# | Aptana
+# | :::::::::::::::::::::::::::
+
+ .project 
+
+
+# |
+# | gitignore.io
+# | :::::::::::::::::::::::::::
+
 # Created by http://www.gitignore.io
 
 ### Bower ###
