@@ -500,25 +500,25 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
 - View single file
 
 ```bash
-$ git difftool test:README.md remotes/origin/master:README.md
+    $ git difftool test:README.md remotes/origin/master:README.md
 ```
 
 - View local master and remote
 
 ```bash
-$ git difftool master remotes/upstream/next
+    $ git difftool master remotes/upstream/next
 ```
 
 - Revisar cambios entre ramas
 
 ```bash
-$ git diff <source_branch> <target_branch>
+    $ git diff <source_branch> <target_branch>
 ```
 
 - Ver archivos de un commit
 
 ```bash
-$ git diff-tree --no-commit-id --name-only -r bd61ad98
+    $ git diff-tree --no-commit-id --name-only -r bd61ad98
 ```
 
 ## SubModulos
@@ -660,3 +660,4 @@ https://github.com/visionmedia/git-extras
 ```bash
 http://rogerdudler.github.io/git-guide/index.es.html
 ```
+
