@@ -94,6 +94,8 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
     $ git config --global push.default simple
   # Config Editor
     $ git config --system core.editor <editor>
+  # Edit config
+    $ git config --global --edit
   ```
 
 - Crear llave ssh
