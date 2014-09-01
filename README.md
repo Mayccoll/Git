@@ -95,7 +95,14 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
   # Config Editor
     $ git config --system core.editor <editor>
   # Edit config
-    $ git config --global --edit
+    $ git config --edit
+    [alias]
+        s = status
+        c = clone
+        co = checkout
+        br = branch
+        up = rebase
+        cm = commit
   ```
 
 - Crear llave ssh
