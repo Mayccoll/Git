@@ -504,6 +504,14 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   $ gitk
 ```
 
+##### Reset and sync local respository with remote branch
+
+```bash
+  $ git fetch origin
+  $ git reset --hard origin/master 
+  $ git clean -f -d
+```
+
 -----------------------------------
 
 ## Diff Tools
