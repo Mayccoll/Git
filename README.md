@@ -1,3 +1,7 @@
+<link href="http://bootswatch.com/simplex/bootstrap.min.css" rel="stylesheet"></link>
+
+<section data-markdown>
+
 # Flujo de trabajo con Git y Gitlab
 
 ##### Implementación de entornos de desarrollo con control de versiones.
@@ -12,7 +16,7 @@ Si bien en git existe una gran variedad de flujos de trabajo en este documento h
 Algo que hay que tener en cuenta es que el flujo de trabajo con git involucra a todos los integrantes del equipo, por lo que se requiere que estén en buena disposición y dispuestos a cambiar sus paradigmas, así mismo que entiendan en que consiste trabajar con git.
 
 ----------------------------------
-    
+
 ## Acerca del control de versiones
 
 ¿Qué es el control de versiones, y por qué debería ser importarte?
@@ -68,13 +72,13 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
 ## Pre-Configuración
 
 - Instalar git
-    
+
   ```bash
-    $ sudo add-apt-repository -y ppa:git-core/ppa 
+    $ sudo add-apt-repository -y ppa:git-core/ppa
     $ sudo apt update
-    $ sudo apt -y install git   
+    $ sudo apt -y install git
   ```
-    
+
 - Instalar cliente ssh
 
   ```bash
@@ -112,9 +116,9 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
   ```
 
 - Crear y Editar archivo config (Para gitlab self hosted)
-    
+
   ~/.ssh/config
-    
+
   ```bash
   Host gitlab.com
     HostName 192.168.10.10
@@ -125,7 +129,7 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
     CompressionLevel 9
     IdentitiesOnly yes
   ```
-    
+
 - Ingresar a gitlab (Github)
 
 - Inscribir llave ssh en gitlab
@@ -133,16 +137,16 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
 ----------------------------------
 
 ## Flujo de trabajo Bifurcado (Fork-Branch)
-    
+
 El workflow bifurcado es diferente de los otros workflows. En vez de usar un repositorio de un único lado del servidor para actuar código base “central”, le da a todos los desarrolladores un repositorio del lado del servidor. Esto significa que cada colaborador no tiene solo uno, sino dos repositorios Git: uno privado y local, y uno público en el servidor.
 [Fuente](https://www.atlassian.com/es/git/workflows#!workflow-forking)
 
 Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir que se deban ejecutar todos cada vez que se empieza a trabajar y algunos son opcionales dependiendo si son necesarios. Lo importante es saber que hace cada comando y se deja a criterio del programador si es necesario ejecutarlo o no.
 
 #### - Hacer un FORK del repositorio upstream. (UNA VEZ)
-    
+
  Este se hace sobre la plataforma gitlab (github) y se hace un fork del repositorio que se denomina **upstream** (repositorio principal donde todos los programadores aportaran sus cambios).
-  
+
 #### - Clonar el repositorio en la maquina donde se va a trabajar.
   Al repositorio que esta en gitlab (github) se le denomina **remote** y al clone que esta en nuestra maquina de trabajo se le denomina **local**
 
@@ -154,20 +158,20 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
 
  Resalto USUARIO en mayúscula porque normalmente eso es lo único que cambia, apuntando al usuario que hospeda el repositorio principal (upstream)
  Este repositorio es aquel que en un principio le hicimos un fork
-    
+
   ```bash
     $ git remote add upstream git@gitlab.com:/USUARIO/proyecto
   ```
 
-#### - **Actualizar** la rama master con repositorio upstream. 
- 
+#### - **Actualizar** la rama master con repositorio upstream.
+
   Este paso es **importante** si hemos clonado previamente el repositorio y después de un tiempo vamos a volver a trabajar
 
   ```bash
     $ git fetch upstream
     $ git merge upstream/master
   ```
-    
+
 #### - Crear una **BRANCH** con titulo detallado sobre lo que vas a trabajar
 
   ```bash
@@ -198,11 +202,11 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   ```
 
 #### - Hacer push
-    
+
   Este paso tiene 2 fines.
-    
+
   Uno asegurar nuestros cambios subiendo los al repositorio remoto (gitlab o github)
-    
+
   Dos disponer de la rama en gitlab (github) para hacer un merge request.
 
   ```bash
@@ -212,18 +216,18 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
 #### - Solicitar un Merge Request
 
   Este se hace sobre la plataforma gitlab (github) y con el le estamos diciendo al usuario que maneja el repositorio principal (upstream) que nuestro código funciona y esta listo para ser integrado con el proyecto.
-    
+
 #### - Actualizar la rama master.
-  
+
   ```bash
     $ git checkout master
     $ git merge [mejora_345]
   ```
 
 #### - Hacer push de nuestra rama master.
-    
+
   Finalmente con esto aseguramos que nuestro repositorio en gitlab se encuentra al dia con todos nuestros cambios y podemos volver a el cuando queramos simplemente clonado el repositorio.
-  
+
   ```bash
     $ git push origin master
   ```
@@ -273,9 +277,9 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
 
 ```bash
   $ git clone [URL_GIT_REPO]  
-  # ejem: 
+  # ejem:
   #      git clone git@github.com:sbadia/vagrant-gitlab.git
-  
+
   # Hacer una copia de un repositorio local
   $ git clone /path/to/repository
 
@@ -301,7 +305,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
 
 ```bash
   $ git remote add [UPSTREAM] [URL_GIT_REPO]
-  # ejem: 
+  # ejem:
   #      git remote add upstream git@github.com:sbadia/vagrant-gitlab.git
 ```
 
@@ -359,7 +363,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
     # ejem:
     #      git branch -D hot_fix_43
   ```
-    
+
 ##### Subir una rama al repositorio remoto
 
 ```bash
@@ -410,7 +414,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
 
   # Push a todas las ramas
   $ git push --all origin
-  
+
   # Ver remoto con url asociada.
   $ git remote -v
 
@@ -434,7 +438,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
 
   # Crear  BRANCH desde unstaged/uncommited  en master
   $ git checkout -b [NEW_BRANCH_NAME]
-  
+
   # Remove local branch
   $ git branch -d [THE_LOCAL_BRANCH]
 
@@ -508,7 +512,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
 
 ```bash
   $ git fetch origin
-  $ git reset --hard origin/master 
+  $ git reset --hard origin/master
   $ git clean -f -d
 ```
 
@@ -679,4 +683,5 @@ https://github.com/visionmedia/git-extras
 ```bash
 http://rogerdudler.github.io/git-guide/index.es.html
 ```
-
+</section>
+<script src="js/data-markdown.user.js"></script>
