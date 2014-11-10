@@ -69,6 +69,7 @@ fi;
 
 
 if [ "$FLAG1" == "1" ] && [ "$FLAG2" == "1" ]; then
+    rm compr.tmp
     echo "******************************"
     echo -e "*** ${GREEN}Branches are identical ${RS}***"
     echo "******************************"
