@@ -520,6 +520,40 @@ git filter-branch --commit-filter '
         fi' HEAD
 ```
 
+### || List all files in repository
+
+```sh
+    git show --pretty="format:" --name-only
+
+    git log --pretty=format: --name-status | cut -f2- | sort -u
+
+    git ls-tree -r master --name-only
+```
+
+### || List all commits for a specific file
+
+```sh
+    git log --follow --oneline text.txt
+```
+
+### || List all commits for a specific file
+
+```sh
+    git log --follow --pretty=format:'%h - %ai' --abbrev-commit text.txt
+```
+
+### || List all commits for a specific file with Date format
+
+```sh
+    git log --follow --date=iso --pretty=format:'%ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08 - %h - %s' --abbrev-commit text.txt
+```
+
+### || Get all extensions and their respective file count in a repository
+
+```sh
+    git show --pretty="format:" --name-only | grep -E ".*\.[a-zA-Z0-9]*$" | sed -e 's/.*\(\.[a-zA-Z0-9]*\)$/\1/' | sort | uniq -c | sort -n
+```
+
 ##### Reset and sync local respository with remote branch
 
 ```bash
