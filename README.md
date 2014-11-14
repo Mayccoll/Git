@@ -263,13 +263,13 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
 
 ## Comandos Utiles
 
-##### Crea un repositorio
+##### || Crea un repositorio
 
 ```bash
   $ git init
 ```
 
-##### Crea un copia en local (clone)
+##### || Crea un copia en local (clone)
 
 ```bash
   $ git clone [URL_GIT_REPO]  
@@ -283,7 +283,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   $ git clone username@host:/path/to/repository
 ```
 
-##### Agregar archivos al stage area (archivos listo para hacer commit)
+##### || Agregar archivos al stage area (archivos listo para hacer commit)
 
 ```bash
   $ git add [filename]
@@ -291,13 +291,13 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   $ git add .
 ```
 
-##### Crear un commit
+##### || Crear un commit
 
 ```bash
   $ git commit -m "Commit message"
 ```
 
-##### Añadir remoto
+##### || Añadir remoto
 
 ```bash
   $ git remote add [UPSTREAM] [URL_GIT_REPO]
@@ -305,7 +305,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   #      git remote add upstream git@github.com:sbadia/vagrant-gitlab.git
 ```
 
-##### Enviar cambios a un repositorio remoto
+##### || Enviar cambios a un repositorio remoto
 
 ```bash
   $ git push [REMOTE] [BRANCH]
@@ -313,7 +313,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   #      git push origin master
 ```
 
-##### Crear una rama
+##### || Crear una rama
 
 ```bash
   $ git branch [BRANCH_NAME]
@@ -321,7 +321,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
     #      git branch hot_fix_43
 ```
 
-##### Cambiar a una rama
+##### || Cambiar a una rama
 
 ```bash
   $ git checkout [BRANCH_NAME]
@@ -329,13 +329,13 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
     #      git checkout hot_fix_43
 ```
 
-##### Volver a la rama principal
+##### || Volver a la rama principal
 
 ```bash
   $ git checkout master
 ```
 
-##### Crear una rama y cambiarse a ella
+##### || Crear una rama y cambiarse a ella
 
 ```bash
   $ git checkout -b [BRANCH_NAME]
@@ -343,7 +343,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   #      git checkout -b hot_fix_43
 ```
 
-##### Borrar una rama
+##### || Borrar una rama
 
 ```bash
   $ git branch -d [BRANCH_NAME]
@@ -351,7 +351,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   #      git branch -d hot_fix_43
 ```
 
-##### Borrar una rama con commits adelante de master
+##### || Borrar una rama con commits adelante de master
 
   ```bash
     # WARNING podremos perder commits
@@ -360,7 +360,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
     #      git branch -D hot_fix_43
   ```
 
-##### Subir una rama al repositorio remoto
+##### || Subir una rama al repositorio remoto
 
 ```bash
   $ git push origin [BRANCH_NAME]
@@ -368,31 +368,31 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   #      git push origin hot_fix_43
 ```
 
-##### Recibir cambios en repositorios remotos
+##### || Recibir cambios en repositorios remotos
 
 ```bash
   $ git fetch [REMOTE_NAME]
 ```
 
-##### Fusionar otra rama con la rama activa
+##### || Fusionar otra rama con la rama activa
 
 ```bash
   $ git merge [BRANCH_NAME]
 ```
 
-##### Actualizar repositorio local con los últimos commits en el remoto
+##### || Actualizar repositorio local con los últimos commits en el remoto
 
 ```bash
   $ git pull
 ```
 
-##### Revisar cambios entre ramas
+##### || Revisar cambios entre ramas
 
 ```bash
   $ git diff [source_branch] [target_branch]
 ```
 
-##### Git logs
+##### || Git logs
 
 ```bash
   # Ver commits id
@@ -402,7 +402,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   $ git log -10 --graph --date-order -C -M --pretty=format:"%C(yellow)%h%C(reset) - %C(bold green)%ad%C(reset) - %C(dim yellow)%an%C(reset) %C(bold red)>%C(reset) %C(white)%s%C(reset) %C(bold red)%d%C(reset) " --abbrev-commit --date=short
 ```
 
-##### **Remote**
+##### || **Remote**
 
 ```bash
   # Ver remotos.
@@ -426,7 +426,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   # Borrar rama en repositorio remoto
   $ git push origin :[REMOTE_NAME]
 ```
-##### Branch
+##### || Branch
 
 ```bash
   # Ver todas las ramas
@@ -442,24 +442,24 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   $ git push origin :[REMOTE_NAME]
 ```
 
-##### Abortar Merge
+##### || Abortar Merge
 
 ```bash
   $ git merge --abort
 ```
-##### Descartar cambios en un archivo
+##### || Descartar cambios en un archivo
 
 ```bash
   $ git checkout [FILE_NAME]
 ```
 
-##### Remove untracked files
+##### || Remove untracked files
 
 ```bash
   $ git clean -f -d
 ```
 
-##### Reverter cualquier cambio
+##### || Reverter cualquier cambio
 
 ```bash
   $ git checkout -f
@@ -467,44 +467,44 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   $ git reset --hard
 ```
 
-##### Deshacer todos los cambios y volver a la ultima version del repositorio remoto
+##### || Deshacer todos los cambios y volver a la ultima version del repositorio remoto
 
 ```bash
   $ git fetch origin
   $ git reset --hard origin/master
 ```
 
-##### Create tag
+##### || Create tag
 
 ```bash
   $ git tag 1.0.0 1b2e1d63ff
 ```
 
-##### View files in commit
+##### || View files in commit
 
 ```bash
   $ git diff-tree --no-commit-id --name-only -r bd61ad98
 ```
 
-##### View remote commits
+##### || View remote commits
 
 ```bash
   $ git log origin/master
 ```
 
-##### Removes staged and working directory changes
+##### || Removes staged and working directory changes
 
 ```bash
   $ git reset --hard
 ```
 
-##### Git gui
+##### || Git gui
 
 ```bash
   $ gitk
 ```
 
-##### Change commit author and email
+##### || Change commit author and email
 
 ```bash
 git filter-branch --commit-filter '
@@ -520,7 +520,7 @@ git filter-branch --commit-filter '
         fi' HEAD
 ```
 
-### || List all files in repository
+#### || List all files in repository
 
 ```sh
     git show --pretty="format:" --name-only
@@ -530,25 +530,25 @@ git filter-branch --commit-filter '
     git ls-tree -r master --name-only
 ```
 
-### || List all commits for a specific file
+#### || List all commits for a specific file
 
 ```sh
     git log --follow --oneline text.txt
 ```
 
-### || List all commits for a specific file
+#### || List all commits for a specific file
 
 ```sh
     git log --follow --pretty=format:'%h - %ai' --abbrev-commit text.txt
 ```
 
-### || List all commits for a specific file with Date format
+#### || List all commits for a specific file with Date format
 
 ```sh
     git log --follow --date=iso --pretty=format:'%ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08 - %h - %s' --abbrev-commit text.txt
 ```
 
-### || Get all extensions and their respective file count in a repository
+#### || Get all extensions and their respective file count in a repository
 
 ```sh
     git show --pretty="format:" --name-only | grep -E ".*\.[a-zA-Z0-9]*$" | sed -e 's/.*\(\.[a-zA-Z0-9]*\)$/\1/' | sort | uniq -c | sort -n
