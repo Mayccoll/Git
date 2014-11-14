@@ -263,13 +263,13 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
 
 ## Comandos Utiles
 
-##### || Crea un repositorio
+#### || Crea un repositorio
 
 ```bash
   $ git init
 ```
 
-##### || Crea un copia en local (clone)
+#### || Crea un copia en local (clone)
 
 ```bash
   $ git clone [URL_GIT_REPO]  
@@ -283,7 +283,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   $ git clone username@host:/path/to/repository
 ```
 
-##### || Agregar archivos al stage area (archivos listo para hacer commit)
+#### || Agregar archivos al stage area (archivos listo para hacer commit)
 
 ```bash
   $ git add [filename]
@@ -291,13 +291,13 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   $ git add .
 ```
 
-##### || Crear un commit
+#### || Crear un commit
 
 ```bash
   $ git commit -m "Commit message"
 ```
 
-##### || Añadir remoto
+#### || Añadir remoto
 
 ```bash
   $ git remote add [UPSTREAM] [URL_GIT_REPO]
@@ -305,7 +305,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   #      git remote add upstream git@github.com:sbadia/vagrant-gitlab.git
 ```
 
-##### || Enviar cambios a un repositorio remoto
+#### || Enviar cambios a un repositorio remoto
 
 ```bash
   $ git push [REMOTE] [BRANCH]
@@ -313,7 +313,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   #      git push origin master
 ```
 
-##### || Crear una rama
+#### || Crear una rama
 
 ```bash
   $ git branch [BRANCH_NAME]
@@ -321,7 +321,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
     #      git branch hot_fix_43
 ```
 
-##### || Cambiar a una rama
+#### || Cambiar a una rama
 
 ```bash
   $ git checkout [BRANCH_NAME]
@@ -329,13 +329,13 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
     #      git checkout hot_fix_43
 ```
 
-##### || Volver a la rama principal
+#### || Volver a la rama principal
 
 ```bash
   $ git checkout master
 ```
 
-##### || Crear una rama y cambiarse a ella
+#### || Crear una rama y cambiarse a ella
 
 ```bash
   $ git checkout -b [BRANCH_NAME]
@@ -343,7 +343,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   #      git checkout -b hot_fix_43
 ```
 
-##### || Borrar una rama
+#### || Borrar una rama
 
 ```bash
   $ git branch -d [BRANCH_NAME]
@@ -351,7 +351,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   #      git branch -d hot_fix_43
 ```
 
-##### || Borrar una rama con commits adelante de master
+#### || Borrar una rama con commits adelante de master
 
   ```bash
     # WARNING podremos perder commits
@@ -360,7 +360,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
     #      git branch -D hot_fix_43
   ```
 
-##### || Subir una rama al repositorio remoto
+#### || Subir una rama al repositorio remoto
 
 ```bash
   $ git push origin [BRANCH_NAME]
@@ -368,7 +368,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   #      git push origin hot_fix_43
 ```
 
-##### || Recibir cambios en repositorios remotos
+#### || Recibir cambios en repositorios remotos
 
 ```bash
   $ git fetch [REMOTE_NAME]
@@ -504,7 +504,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   $ gitk
 ```
 
-##### || Change commit author and email
+#### || Change commit author and email
 
 ```bash
 git filter-branch --commit-filter '
