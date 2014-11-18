@@ -453,9 +453,10 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   $ git checkout [FILE_NAME]
 ```
 
-##### || Remove untracked files
+##### || Remove untracked files (WARNING)
 
 ```bash
+  # (WARNING)
   $ git clean -f -d
 ```
 
@@ -559,6 +560,7 @@ git filter-branch --commit-filter '
 ```bash
   $ git fetch origin
   $ git reset --hard origin/master
+  # (WARNING)
   $ git clean -f -d
 ```
 
