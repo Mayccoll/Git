@@ -555,6 +555,12 @@ git filter-branch --commit-filter '
     git show --pretty="format:" --name-only | grep -E ".*\.[a-zA-Z0-9]*$" | sed -e 's/.*\(\.[a-zA-Z0-9]*\)$/\1/' | sort | uniq -c | sort -n
 ```
 
+#### || Delete merged branches
+
+```sh
+  git branch --merged | grep -v \* | grep -v master | xargs git branch -d
+```
+
 ##### Reset and sync local respository with remote branch
 
 ```bash
