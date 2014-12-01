@@ -90,10 +90,15 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
     $ git config --global color.ui true
     $ git config --global log.decorate true
     $ git config --global log.abbrevCommit true
+    $ git config --global core.autocrlf input
+    $ git config --global core.safecrlf true
+    
   # only pushes the current branch to the corresponding remote branch
     $ git config --global push.default simple
+    
   # Config Editor
     $ git config --system core.editor <editor>
+    
   # Edit config
     $ git config --edit
     [alias]
