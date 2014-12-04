@@ -286,6 +286,12 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   $ git init
 ```
 
+ #### || Show individual files in untracked directories. 
+
+```bash
+  $ git status -u
+```
+  
 #### || Crea un copia en local (clone)
 
 ```bash
