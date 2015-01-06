@@ -448,6 +448,9 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
 
   # Borrar rama en repositorio remoto
   $ git push origin :[REMOTE_NAME]
+  
+  # Disable PUSH
+  $ git remote set-url --push origin NO-PUSH
 ```
 ##### || Branch
 
