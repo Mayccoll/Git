@@ -103,6 +103,7 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
     $ git config --global log.abbrevCommit true
     $ git config --global core.autocrlf input
     $ git config --global core.safecrlf true
+    $ git config --global help.autocorrect 3
     # Ignore file mode (chmod) changes
     $ git config core.fileMode false
     # only pushes the current branch to the corresponding remote branch
