@@ -121,6 +121,7 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
         br = branch
         up = rebase
         cm = commit
+        lg = log -20 --graph --date-order -C -M --pretty=format:"%C(yellow)%h%C(reset) - %C(bold green)%ad%C(reset) - %C(dim yellow)%an%C(reset) %C(bold red)>%C(reset) %C(white)%s%C(reset) %C(bold red)%d%C(reset) " --abbrev-commit --date=short
   ```
 
 - Crear llave ssh
