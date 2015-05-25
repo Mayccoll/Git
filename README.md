@@ -602,6 +602,13 @@ git filter-branch --commit-filter '
 
 ## Diff Tools
 
+- View last changes in file
+
+```bash
+  $
+  git difftool HEAD^ <file>
+```
+
 - View single file
 
 ```bash
