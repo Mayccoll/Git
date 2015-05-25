@@ -665,6 +665,8 @@ $ git submodule update
 ```bash
   $ 
   git config --global alias.up-sub '!f() { cd $1 && git checkout master && git pull && git submodule update --init --recursive; }; f'
+  # Use:
+  git up-sub SUB_MODULE_FOLDER
 ```
 
 - Updating Submodules For Your Parent Repo
