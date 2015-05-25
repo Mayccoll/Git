@@ -660,19 +660,22 @@ $ git submodule update
 
 ```
 
+- Update Submodule
+
+```bash
+  $ 
+  git config --global alias.up-sub '!f() { cd $1 && git checkout master && git pull && git submodule update --init --recursive; }; f'
+```
+
 - Updating Submodules For Your Parent Repo
 
 ```bash
-$ cd PATH_TO_SUBMODULE/
-
-$ git pull origin master # <-- don't forget master!!
-
-  $ cd PATH_TO_PARENT_REPO/
-
-  $ git commit -am "Upgrading our Submodules"
-
-  $ git push origin
-
+  $ 
+  cd PATH_TO_SUBMODULE/
+  git pull origin master # <-- don't forget master!!
+  cd PATH_TO_PARENT_REPO/
+  git commit -am "Upgrading our Submodules"
+  git push origin
   ```
 
   - Pulling Submodule Updates From Parent Repo
