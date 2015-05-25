@@ -67,90 +67,119 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
 
 ## Pre-Configuración
 
-- Instalar git
+- Install git (Ubuntu)
 
-  ```bash
-    $ sudo add-apt-repository -y ppa:git-core/ppa
-    $ sudo apt update
-    $ sudo apt -y install git
+```bash
+  $
+  sudo add-apt-repository -y ppa:git-core/ppa
+  sudo apt update
+  sudo apt -y install git
+```
 
-    # Centos from source
-    $ sudo yum groupinstall "Development Tools"
-    $ sudo yum install zlib-devel perl-ExtUtils-MakeMaker asciidoc xmlto openssl-devel
-    $ wget -O git.zip https://github.com/git/git/archive/master.zip
-    $ unzip git.zip
-    $ cd git-master
-    $ make configure
-    $ ./configure --prefix=/usr/local
-    $ make all doc
-    $ sudo make install install-doc install-html
-  ```
+- Install git (Centos)
+
+```bash
+  # Centos from source
+  $
+  sudo yum groupinstall "Development Tools"
+  sudo yum install zlib-devel perl-ExtUtils-MakeMaker asciidoc xmlto openssl-devel
+  wget -O git.zip https://github.com/git/git/archive/master.zip
+  unzip git.zip
+  cd git-master
+  make configure
+  ./configure --prefix=/usr/local
+  make all doc
+  sudo make install install-doc install-html
+```
 
 - Instalar cliente ssh
 
-  ```bash
-    $ sudo apt -y install openssh-client
-  ```
+```bash
+  $
+  sudo apt -y install openssh-client
+```
+
 - Configurar git
 
-  ```bash
-    $ git config --global user.name "USERNAME"
-    $ git config --global user.email "EMAIL@EMAIL.com"
+```bash
+  $
+  git config --global user.name "USERNAME"
+  git config --global user.email "EMAIL@EMAIL.com"
+```
 
-  # (Opcionales)
-    $ git config --global color.ui true
-    $ git config --global log.decorate true
-    $ git config --global log.abbrevCommit true
-    $ git config --global core.autocrlf input
-    $ git config --global core.safecrlf true
-    $ git config --global help.autocorrect 3
-    # Ignore file mode (chmod) changes
-    $ git config core.fileMode false
-    # only pushes the current branch to the corresponding remote branch
-    $ git config --global push.default simple
-    
+- Configuraciones Opcionales
+
+```bash
+  $
+  git config --global color.ui true
+  git config --global log.decorate true
+  git config --global log.abbrevCommit false
+  git config --global core.autocrlf input
+  git config --global core.safecrlf true
+  git config --global help.autocorrect 3
+
+  # only pushes the current branch to the corresponding remote branch
+  $ git config --global push.default simple
+
   # Config Editor
-    $ git config --system core.editor <editor>
-    
-  # Edit config
-    $ git config --global --edit
-[alias]
-        co = checkout
-        ck = checkout
-        br = branch
-        ci = commit
-        st = status
-        s = status
-        c = commit -m
-        lg = !git --no-pager log -50 --graph --date-order -C -M --pretty=format:\"%C(yellow)%h%C(reset) - %C(green)%ad%C(reset) - %C(blue)%an%C(reset) %C(bold red)-%C(reset) %C(white)%s%C(reset) %C(bold red)%d%C(reset) \" --abbrev-commit --date=short
+  $ git config --system core.editor <editor>
 
-        up-sub = "!f() { cd $1 && git checkout master && git pull && git submodule update --init --recursive; }; f"
-[help]
-        autocorrect = 3
-[log]
-        abbrevCommit = true
-  ```
+  # Ignore file mode (chmod) changes
+  $ git config core.fileMode false
+
+
+
+  # Edit config Manualy
+  $ git config --global --edit
+
+  +++
+  [alias]
+          co = checkout
+          ck = checkout
+          br = branch
+          ci = commit
+          st = status
+          s = status
+          c = commit -m
+          lg = !git --no-pager log -50 --graph --date-order -C -M --pretty=format:\"%C(yellow)%h%C(reset) - %C(green)%ad%C(reset) - %C(blue)%an%C(reset) %C(bold red)-%C(reset) %C(white)%s%C(reset) %C(bold red)%d%C(reset) \" --abbrev-commit --date=short
+
+          up-sub = "!f() { cd $1 && git checkout master && git pull && git submodule update --init --recursive; }; f"
+  [help]
+          autocorrect = 3
+  [log]
+          abbrevCommit = false
+          decorate = true
+  [push]
+          default = simple
+  [color]
+          ui = true
+  [core]
+          autocrlf = input
+          safecrlf = true
+
+```
 
 - Crear llave ssh
 
-  ```bash
-    $ ssh-keygen -t rsa -b 4096
-  ```
+```bash
+  $
+  ssh-keygen -t rsa -b 4096
+```
 
 - Crear y Editar archivo config (Para gitlab self hosted)
 
-  ~/.ssh/config
+>>> ~/.ssh/config
 
-  ```bash
-  Host gitlab.com
-    HostName 192.168.10.10
-    User git
-    Port 22
-    IdentityFile ~/.ssh/id_rsa+
-    Compression yes
-    CompressionLevel 9
-    IdentitiesOnly yes
-  ```
+```bash
+Host gitlab.com
+  HostName 192.168.10.10
+  User git
+  Port 22
+  IdentityFile ~/.ssh/id_rsa+
+  Compression yes
+  CompressionLevel 9
+  IdentitiesOnly yes
+```
 
 - Ingresar a gitlab (Github)
 
@@ -295,12 +324,12 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
   $ git init
 ```
 
- #### || Show individual files in untracked directories. 
+ #### || Show individual files in untracked directories.
 
 ```bash
   $ git status -u
 ```
-  
+
 #### || Crea un copia en local (clone)
 
 ```bash
@@ -457,7 +486,7 @@ Los pasos en este workflow aunque siguen una secuencia lógica no quiere decir q
 
   # Borrar rama en repositorio remoto
   $ git push origin :[REMOTE_NAME]
-  
+
   # Disable PUSH
   $ git remote set-url --push origin NO-PUSH
 ```
@@ -670,7 +699,7 @@ $ git submodule update
 - Update Submodule
 
 ```bash
-  $ 
+  $
   git config --global alias.up-sub '!f() { cd $1 && git checkout master && git pull && git submodule update --init --recursive; }; f'
   # Use:
   git up-sub SUB_MODULE_FOLDER
@@ -679,7 +708,7 @@ $ git submodule update
 - Updating Submodules For Your Parent Repo
 
 ```bash
-  $ 
+  $
   cd PATH_TO_SUBMODULE/
   git pull origin master # <-- don't forget master!!
   cd PATH_TO_PARENT_REPO/
