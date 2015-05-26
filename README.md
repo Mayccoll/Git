@@ -127,6 +127,14 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
   # Ignore file mode (chmod) changes
   $ git config core.fileMode false
 
+  # Alias
+  git config --global alias.co checkout
+  git config --global alias.ck checkout
+  git config --global alias.br branch
+  git config --global alias.ci commit
+  git config --global alias.st status
+  git config --global alias.s  status
+  git config --global alias.c  'commit -m'
 
 
   # Edit config Manualy
