@@ -149,7 +149,7 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
           st = status
           s = status
           c = commit -m
-          lg = !git --no-pager log -50 --graph --date-order -C -M --pretty=format:\"%C(yellow)%h%C(reset) - %C(green)%ad%C(reset) - %C(blue)%an%C(reset) %C(bold red)-%C(reset) %C(white)%s%C(reset) %C(bold red)%d%C(reset) \" --abbrev-commit --date=short
+          ll = !git --no-pager log -50 --graph --date-order -C -M --pretty=tformat:\"%C(yellow)%h%C(reset) - %C(green)%ad%C(reset) - %C(blue)%an%C(reset) %C(bold red)-%C(reset) %C(white)%s%C(reset) %C(bold red)%d%C(reset) \" --abbrev-commit --date=short
 
           up-sub = "!f() { cd $1 && git checkout master && git pull && git submodule update --init --recursive; }; f"
   [help]
