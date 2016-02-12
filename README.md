@@ -106,67 +106,6 @@ Es un aplicación para administrar proyectos con el control de versiones Git, ba
   git config --global user.name "USERNAME"
   git config --global user.email "EMAIL@EMAIL.com"
 ```
-
-- Configuraciones Opcionales
-
-```bash
-  $
-  git config --global color.ui true
-  git config --global log.decorate true
-  git config --global log.abbrevCommit false
-  git config --global core.autocrlf input
-  git config --global core.safecrlf true
-  git config --global help.autocorrect 3
-
-  # only pushes the current branch to the corresponding remote branch
-  $ git config --global push.default simple
-
-  # Config Editor
-  $ git config --system core.editor <editor>
-
-  # Ignore file mode (chmod) changes
-  $ git config core.fileMode false
-
-  # Alias
-  git config --global alias.co checkout
-  git config --global alias.ck checkout
-  git config --global alias.br branch
-  git config --global alias.ci commit
-  git config --global alias.st status
-  git config --global alias.s  status
-  git config --global alias.c  'commit -m'
-
-
-  # Edit config Manualy
-  $ git config --global --edit
-
-  +++
-  [alias]
-          co = checkout
-          ck = checkout
-          br = branch
-          ci = commit
-          st = status
-          s = status
-          c = commit -m
-          ll = !git --no-pager log -50 --graph --date-order -C -M --pretty=tformat:\"%C(yellow)%h%C(reset) - %C(green)%ad%C(reset) - %C(blue)%an%C(reset) %C(bold red)-%C(reset) %C(white)%s%C(reset) %C(bold red)%d%C(reset) \" --abbrev-commit --date=short
-
-          up-sub = "!f() { cd $1 && git checkout master && git pull && git submodule update --init --recursive; }; f"
-  [help]
-          autocorrect = 3
-  [log]
-          abbrevCommit = false
-          decorate = true
-  [push]
-          default = simple
-  [color]
-          ui = true
-  [core]
-          autocrlf = input
-          safecrlf = true
-
-```
-
 - Crear llave ssh
 
 ```bash
@@ -183,7 +122,7 @@ Host gitlab.com
   HostName 192.168.10.10
   User git
   Port 22
-  IdentityFile ~/.ssh/id_rsa+
+  IdentityFile ~/.ssh/id_rsa
   Compression yes
   CompressionLevel 9
   IdentitiesOnly yes
@@ -194,6 +133,70 @@ Host gitlab.com
 - Inscribir llave ssh en gitlab
 
 ----------------------------------
+
+### Extras
+
+- **Install Diff So Fancy**
+
+https://github.com/stevemao/diff-so-fancy
+
+```bash
+  npm i -g diff-so-fancy
+```
+
+- **Configuraciones Opcionales**
+
+```bash
+  $
+  git config --global color.ui true
+  git config --global log.decorate true
+  git config --global log.abbrevCommit false
+  git config --global core.autocrlf input
+  git config --global core.safecrlf true
+  git config --global help.autocorrect 3
+  # only pushes the current branch to the corresponding remote branch
+  git config --global push.default simple
+  # Config Editor
+  git config --global core.editor atom
+  # Ignore file mode (chmod) changes
+  git config core.fileMode false
+```
+
+- **Editar /home/USER/.gitconfig**
+
+```
+  $ git config --global --edit
+```
+
+```
+  +++
+  [alias]
+    co     = checkout
+    ck     = checkout
+    br     = branch
+    ci     = commit
+    st     = status
+    s      = status
+    c      = commit -m
+    ll     = !git --no-pager log -50 --graph --date-order -C -M --pretty=format:\"%C(yellow)%h%C(reset) - %C(green)%ad%C(reset) - %C(blue)%an%C(reset) %C(bold red)-%C(reset) %C(white)%s%C(reset) %C(bold red)%d%C(reset) \" --abbrev-commit --date=short
+    up-sub = "!f() { cd $1 && git checkout master && git pull && git submodule update --init --recursive; }; f"
+    ff     = "!git diff --color $@ | diff-so-fancy"
+  [help]
+  	autocorrect = 3
+  [log]
+  	abbrevCommit = false
+  	decorate = true
+  [push]
+  	default = simple
+  [color]
+  	ui = true
+  [core]
+  	autocrlf = input
+  	safecrlf = true
+  	editor = atom
+
+```
+
 
 ## Flujo de trabajo Bifurcado (Fork-Branch)
 
