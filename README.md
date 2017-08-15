@@ -169,8 +169,7 @@ https://github.com/stevemao/diff-so-fancy
 ```
 
 ```
-  +++
-  [alias]
+[alias]
     co     = checkout
     ck     = checkout
     br     = branch
@@ -178,23 +177,28 @@ https://github.com/stevemao/diff-so-fancy
     st     = status
     s      = status
     c      = commit -m
+    i      = !git ls-files -v | grep "^[[:lower:]]"
     ll     = !git --no-pager log -50 --graph --date-order -C -M --pretty=format:\"%C(yellow)%h%C(reset) - %C(green)%ad%C(reset) - %C(blue)%an%C(reset) %C(bold red)-%C(reset) %C(white)%s%C(reset) %C(bold red)%d%C(reset) \" --abbrev-commit --date=short
     up-sub = "!f() { cd $1 && git checkout master && git pull && git submodule update --init --recursive; }; f"
     ff     = "!git diff --color $@ | diff-so-fancy"
-  [help]
-  	autocorrect = 3
-  [log]
-  	abbrevCommit = false
-  	decorate = true
-  [push]
-  	default = simple
-  [color]
-  	ui = true
-  [core]
-  	autocrlf = input
-  	safecrlf = true
-  	editor = atom
 
+[help]
+    autocorrect = 3
+
+[log]
+    abbrevCommit = false
+    decorate = true
+
+[push]
+    default = simple
+
+[color]
+    ui = true
+
+[core]
+    autocrlf = input
+    safecrlf = true
+    editor = atom
 ```
 
 
